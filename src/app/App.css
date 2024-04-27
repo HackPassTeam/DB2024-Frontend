@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 body {
-	background-color: black !important;
+	/*background-color: black !important;*/
+	background-image: url("../shared/lib/assets/christmas_snowy_overlay_background_1309.webp") !important;
+	background-repeat: repeat !important;
+	/*background-size: cover !important;*/
+	/*background-attachment: fixed !important;*/
 	font-family: "Montserrat", sans-serif !important;
 	color: white !important;
+
+	scrollbar-color: rgba(50, 50, 50, 0.6) transparent !important;
 }
