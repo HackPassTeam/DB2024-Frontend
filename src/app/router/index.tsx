@@ -7,7 +7,9 @@ import {
 	ChatPage,
 	HomePage,
 	LoginPage,
-	RegisterPage
+	MaterialPage,
+	RegisterPage,
+	TheoryPage
 } from "@/pages";
 
 
@@ -19,6 +21,8 @@ export const Router = () => {
 					<Route path="home" element={ <HomePage /> } />
 					<Route path="chat" element={ <ChatPage /> } />
 					<Route path="account" element={ <AccountPage /> } />
+					<Route path="material" element={ <MaterialPage /> } />
+					<Route path="theory" element={ <TheoryPage /> } />
 				</Route>
 				<Route path="auth">
 					<Route path="login" element={ <LoginPage /> } />

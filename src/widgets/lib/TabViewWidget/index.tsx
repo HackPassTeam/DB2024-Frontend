@@ -16,6 +16,9 @@ export const TabView = () => {
 
 	// states
 	const [ selectedTabBarItem, setSelectedTabBarItem ] = useState<string>(window.location.pathname)
+	useEffect(() => {
+		console.log(selectedTabBarItem)
+	}, []);
 	const tabBarItems: ITabBarItems = {
 		home: "home",
 		account: "account",
@@ -24,7 +27,10 @@ export const TabView = () => {
 	// logic
 	const handleTabBarItemClick = (tabBarItem: TabBarItem) => {
 		setSelectedTabBarItem(tabBarItem)
-		navigate(tabBarItem)
+
+		if (selectedTabBarItem === "home" || selectedTabBarItem === "account") {
+			navigate(tabBarItem)
+		}
 	}
 	useEffect( () => handleTabBarItemClick(tabBarItems.home), [] )
 
