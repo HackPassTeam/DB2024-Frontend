@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { API } from "@/shared";
-import {Box, Button, VStack} from "@chakra-ui/react";
+import { API, useCheckAuth } from "@/shared";
+import { Box, Button, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import {GoBackWidget} from "@/widgets";
+import { GoBackWidget } from "@/widgets";
 
 
 export const MaterialPage = () => {
+
+	useCheckAuth()
 
 	const [ theories, setTheories] = useState()
 

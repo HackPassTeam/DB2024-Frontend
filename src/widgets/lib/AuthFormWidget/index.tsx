@@ -64,12 +64,16 @@ export const AuthFormWidget: FC<IAuthFormWidgetProps> = (props) => {
     const handleSubmit = () => {
         if (login) {
             API.Auth.login(loginFormData)
-                .then(() => {
+                .then( res => {
+                    localStorage.setItem("token", res.data.access_token)
                     navigate("/home")
                 })
         } else {
             API.Auth.register(registerFormData)
-                .then( () => API.Auth.login(registerFormData) )
+                .then( () => API.Auth.login(registerFormData).then( res => {
+                    localStorage.setItem("token", res.data.access_token)
+                    navigate("/home")
+                }))
         }
     }
 
@@ -136,7 +140,7 @@ export const AuthFormWidget: FC<IAuthFormWidgetProps> = (props) => {
                         </Link>
 
                         <Button
-                            colorScheme="yellow"
+                            colorScheme="blue"
                             w="100%"
                             onClick={ () => handleSubmit() }
                         >

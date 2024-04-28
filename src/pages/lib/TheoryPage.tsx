@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { API } from "@/shared";
+import { API, useCheckAuth } from "@/shared";
 import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import { GoBackWidget } from "@/widgets";
 
 
 export const TheoryPage = () => {
+
+	useCheckAuth()
 
 	const [ theory, setTheory ] = useState<string>()
 

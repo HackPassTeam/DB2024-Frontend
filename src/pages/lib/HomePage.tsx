@@ -1,10 +1,10 @@
 import { SearchMaterialWidget } from "@/widgets";
+import { useCheckAuth } from "@/shared";
 
 
 export const HomePage = () => {
-	return (
-		<>
-			<SearchMaterialWidget />
-		</>
-	)
+
+	useCheckAuth()
+
+	return <SearchMaterialWidget />
 }

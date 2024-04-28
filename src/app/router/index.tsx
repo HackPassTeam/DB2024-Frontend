@@ -19,7 +19,6 @@ export const Router = () => {
 			<Routes>
 				<Route path="/" element={ <Layout /> }>
 					<Route path="home" element={ <HomePage /> } />
-					<Route path="chat" element={ <ChatPage /> } />
 					<Route path="account" element={ <AccountPage /> } />
 					<Route path="material" element={ <MaterialPage /> } />
 					<Route path="theory" element={ <TheoryPage /> } />
