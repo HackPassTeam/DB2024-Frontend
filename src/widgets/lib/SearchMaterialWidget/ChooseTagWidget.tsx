@@ -41,7 +41,9 @@ export const ChooseTagWidget: FC<IChooseTagWidgetProps> = (props) => {
 	useEffect(() => {
 		API.Main.getTags()
 			.then(res => {
+				// let tagsSet = new Set(res.data.tags)
 				// @ts-expect-error asddass
+				// setTags(tagsSet)
 				setTags(res.data.tags)
 				console.log(res.data.tags)
 			})

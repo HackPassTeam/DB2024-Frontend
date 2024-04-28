@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { API } from "@/shared";
 import {Box, Button, VStack} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import {GoBackWidget} from "@/widgets";
 
 
 export const MaterialPage = () => {
@@ -20,14 +21,16 @@ export const MaterialPage = () => {
 
 	return (
 		<VStack justifyContent="center">
-			{ theories?.map(theory => { return <Box key={ theory.id } bg="#1a1919" w="20rem" p="1rem" borderRadius="1rem" >
+			<GoBackWidget />
+
+			{ theories?.map(theory => { return <Box key={ theory.id } bg="rgba(50, 50, 50, 0.6)" w="20rem" p="1rem" borderRadius="1rem" >
 				<Link to={`/theory?id=${ theory.id }`}>
 					{ theory.title }
 				</Link>
 			</Box>}) }
 
-			<Button onClick={ () => {} }>
-				Пройти тест по материалу
+			<Button onClick={ () => {} } marginTop="0.5rem">
+				Пройти тест по курсу
 			</Button>
 		</VStack>
 	)

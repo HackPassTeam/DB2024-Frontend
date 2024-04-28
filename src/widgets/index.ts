@@ -5,6 +5,7 @@ import { HeaderWidget } from "@widgets/lib/HeaderWidget";
 import { SearchMaterialWidget } from "@widgets/lib/SearchMaterialWidget/SearchMaterialWidget.tsx";
 import { TextWidget } from "@widgets/lib/TextWidget";
 import { AccountWidget } from "@widgets/lib/AccountWidget";
+import { GoBackWidget } from "@widgets/lib/GoBackWidget/GoBackWidget.tsx";
 
 export {
 	TabView,
@@ -14,4 +15,5 @@ export {
 	SearchMaterialWidget,
 	TextWidget,
 	AccountWidget,
+	GoBackWidget
 }
