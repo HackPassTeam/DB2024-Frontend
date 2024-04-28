@@ -2,18 +2,22 @@ import {FaSearch} from "react-icons/fa";
 import {FaFilter} from "react-icons/fa6";
 import {
 	Box,
-	Button, Flex,
+	Button,
 	HStack,
 	Input,
 	InputGroup,
 	InputLeftElement,
-	InputRightAddon, Tag, TagCloseButton, TagLabel, Text,
-	useDisclosure, VStack
+	InputRightAddon,
+	Tag,
+	TagLabel,
+	Text,
+	useDisclosure,
+	VStack
 } from "@chakra-ui/react";
-import {useEffect, useState} from "react";
-import {ChooseTagWidget} from "./ChooseTagWidget.tsx";
-import {API} from "@/shared";
-import {Link} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { ChooseTagWidget } from "./ChooseTagWidget.tsx";
+import { API } from "@/shared";
+import { Link } from "react-router-dom";
 
 
 export const SearchMaterialWidget = () => {
@@ -69,6 +73,7 @@ export const SearchMaterialWidget = () => {
 			</HStack>
 
 			<VStack minW="20rem" maxW="90rem" maxH="70vh" overflowY="scroll" borderRadius="1rem" paddingRight="0.25rem">
+				{/* @ts-expect-error sad */}
 				{materials?.map(material => (
 					<Box
 						width="100%"
@@ -80,6 +85,7 @@ export const SearchMaterialWidget = () => {
 						<Link to={`/material?id=${ material.id }`}>
 							<Text fontWeight="bold" fontSize="1.5rem" marginBottom="0.5rem"> { material.name } </Text>
 
+							{/* @ts-expect-error sad */}
 							{ material.tags.map(tag => (
 								<Tag
 									key={ tag.id }

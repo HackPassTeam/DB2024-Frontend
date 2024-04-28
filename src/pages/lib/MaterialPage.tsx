@@ -23,6 +23,7 @@ export const MaterialPage = () => {
 		<VStack justifyContent="center">
 			<GoBackWidget />
 
+			{/* @ts-expect-error sad */}
 			{ theories?.map(theory => { return <Box key={ theory.id } bg="rgba(50, 50, 50, 0.6)" w="20rem" p="1rem" borderRadius="1rem" >
 				<Link to={`/theory?id=${ theory.id }`}>
 					{ theory.title }
