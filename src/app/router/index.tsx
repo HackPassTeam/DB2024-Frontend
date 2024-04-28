@@ -4,7 +4,6 @@ import { Layout } from "@/widgets";
 
 import {
 	AccountPage,
-	ChatPage,
 	HomePage,
 	LoginPage,
 	MaterialPage,

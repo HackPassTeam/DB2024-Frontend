@@ -4,9 +4,9 @@ import {GET_MATERIALS_URL, GET_THEORIES_URL, GET_THEORY_URL} from "@shared/lib/c
 
 export class Edu {
 
-	public static getMaterials = async (searchValue: string) => {
+	public static getMaterials = async (searchValue: string, tags: Array<number | null>) => {
 		return axiosClient.post(GET_MATERIALS_URL, {
-			"tags": [],
+			"tags": tags,
 			"q": searchValue,
 			"page": 1,
 			"size": 20

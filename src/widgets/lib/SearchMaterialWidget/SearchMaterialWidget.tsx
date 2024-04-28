@@ -23,9 +23,10 @@ import { Link } from "react-router-dom";
 export const SearchMaterialWidget = () => {
 
 	// states
-	const [inputValue, setInputValue] = useState<string>("")
-	const {isOpen, onOpen, onClose} = useDisclosure()
-	const [materials, setMaterials] = useState()
+	const { isOpen, onOpen, onClose } = useDisclosure()
+	const [ inputValue, setInputValue ] = useState<string>("")
+	const [ materials, setMaterials ] = useState()
+	const [ reqTags, setReqTags ] = useState<Array<number | null>>([])
 
 	// logic
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,22 +35,22 @@ export const SearchMaterialWidget = () => {
 		setInputValue(e.target.value)
 	}
 	const handleSubmit = () => {
-		API.Edu.getMaterials(inputValue).then(res => setMaterials(res.data.educational_material))
+		API.Edu.getMaterials(inputValue, reqTags).then(res => setMaterials(res.data.educational_material))
 	}
 
 	useEffect(() => {
-		API.Edu.getMaterials(inputValue).then(res => setMaterials(res.data.educational_material))
+		API.Edu.getMaterials(inputValue, reqTags).then(res => setMaterials(res.data.educational_material))
 	}, []);
 
 	// view
 	return (
 		<VStack w="100%" paddingInline="2rem">
 			<HStack mt="0" w="100%" marginBottom="1rem">
-				<Button onClick={onOpen}>
+				<Button onClick={ onOpen }>
 					<FaFilter/>
 				</Button>
 
-				<ChooseTagWidget isOpen={isOpen} onOpen={onOpen} onClose={onClose}/>
+				<ChooseTagWidget isOpen={ isOpen } onOpen={ onOpen } onClose={ onClose } setReqTags={ setReqTags } />
 
 				<InputGroup>
 					<InputLeftElement pointerEvents='none'>
@@ -61,11 +62,11 @@ export const SearchMaterialWidget = () => {
 						name="search"
 						placeholder="Название"
 						value={inputValue}
-						onChange={handleChange}
+						onChange={ handleChange }
 					/>
 
 					<InputRightAddon>
-						<Button onClick={handleSubmit}>
+						<Button onClick={ handleSubmit }>
 							Найти
 						</Button>
 					</InputRightAddon>
@@ -74,7 +75,7 @@ export const SearchMaterialWidget = () => {
 
 			<VStack minW="20rem" maxW="90rem" maxH="70vh" overflowY="scroll" borderRadius="1rem" paddingRight="0.25rem">
 				{/* @ts-expect-error sad */}
-				{materials?.map(material => (
+				{materials?.map( material => (
 					<Box
 						width="100%"
 						bg="rgba(50, 50, 50, 0.6)"
@@ -86,7 +87,7 @@ export const SearchMaterialWidget = () => {
 							<Text fontWeight="bold" fontSize="1.5rem" marginBottom="0.5rem"> { material.name } </Text>
 
 							{/* @ts-expect-error sad */}
-							{ material.tags.map(tag => (
+							{ material.tags.map( tag => (
 								<Tag
 									key={ tag.id }
 									size="md"
