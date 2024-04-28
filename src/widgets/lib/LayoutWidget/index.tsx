@@ -1,20 +1,12 @@
-import { Outlet, useNavigate } from "react-router-dom";
-
-import {HeaderWidget, TabView} from "@/widgets";
-import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import { HeaderWidget, TabView } from "@/widgets";
 import { AppRoot } from "@vkontakte/vkui";
+import { useCheckAuth } from "@/shared";
 
 
 export const Layout = () => {
 
-	const navigate = useNavigate();
-
-	useEffect( () => {
-		if (window.location.pathname === "") {
-			navigate("home")
-		}
-	}, [] )
-
+	useCheckAuth()
 
 	return (
 		<AppRoot>
